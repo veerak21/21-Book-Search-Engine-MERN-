@@ -13,8 +13,7 @@ import { GET_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 import { removeBookId, saveBookIds } from '../utils/localStorage';
 import { REMOVE_BOOK } from "../utils/mutations"
-// const SavedBooks = () => {
-//   const [userData, setUserData] = useState({});
+
 const SavedBooks = () => {
   // took off the use effect func and substitutes it useQuery to get the data
   const { loading, data } = useQuery(GET_ME);
