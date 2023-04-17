@@ -1,6 +1,7 @@
 # Project Title: Book Search Engine Starter Code
 
 ## Description:
+ This is a Google Books API search engine for new books for user to read.
 
 
 ## Installation:
