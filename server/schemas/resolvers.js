@@ -18,6 +18,12 @@ const resolvers = {
         },
     },
     Mutation: {
+        addUser: async (parent, { name, email, password }) => {
+            const user = await user.create({ name, email, password });
+            const token = signToken(user);
+
+            return { token, user };
+        },
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
             if (!user) {
@@ -30,6 +36,7 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
+
         saveBook: async (parent, { input }, context) => {
             if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(

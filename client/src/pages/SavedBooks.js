@@ -6,7 +6,7 @@ import {
   Row,
   Col
 } from 'react-bootstrap';
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { useQuery, useMutation } from "@apollo/client";
 
 
 import { GET_ME } from '../utils/queries';
@@ -59,7 +59,7 @@ const SavedBooks = () => {
     }
 
     try {
-      const response = await deleteBook(bookId, token);
+      const response = await removeBook(bookId, token);
 
       if (!response.ok) {
         throw new Error('something went wrong!');
@@ -75,7 +75,7 @@ const SavedBooks = () => {
   };
 
   // if data isn't here yet, say so
-  if (!userDataLength) {
+  if (!userData) {
     return <h2>LOADING...</h2>;
   }
   // get info from localStorage by the use data queries

@@ -7,7 +7,7 @@ type Book {
     description: String
     bookId: String!
     image: String
-    link: Sting
+    link: String
     title: String!
 }
 # declaring type User with it value
@@ -40,8 +40,9 @@ type Query {
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveBook(input: SavedBookInput): User
+    saveBook(input: SaveBookInput): User
     removeBook(bookId: String!): User
 }
 
 `;
+module.exports = typeDefs;
