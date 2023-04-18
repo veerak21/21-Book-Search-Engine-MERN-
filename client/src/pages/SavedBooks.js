@@ -75,12 +75,17 @@ const SavedBooks = () => {
   };
 
   // if data isn't here yet, say so
-  if (!userData) {
+  if (userData.length === 0) {
     return <h2>LOADING...</h2>;
   }
-  // get info from localStorage by the use data queries
+  // if (!userData) {
+  //   return <h2>LOADING...</h2>;
+  // }
+  console.log(userData);
+  // get info from localStorage by the use data queries  
   const savedBookIds = userData.savedBooks.map(book => book.bookId);
   saveBookIds(savedBookIds);
+
 
   return (
     <>
