@@ -16,7 +16,7 @@ type User {
     username: String!
     email: String!
     bookCount: Int
-    saveBooks: [Book]
+    saveBook: [Book]
 }
 # declaring type Auth with it values
 type Auth {
