@@ -4,13 +4,13 @@ const { User } = require("../models");
 // Importing sighToken from utils
 const { signToken } = require("../utils/auth");
 
+
 //set the queires foe me and data errors
 const resolvers = {
     Query: {
-        me: async (parent, args, contex) => {
-            if (AudioContext.user) {
-                const userData = await User.findOne({ _id: AudioContext.user._id }).select(
-                    "-__v -password"
+        me: async (parent, args, context) => {
+            if (context.user) {
+                const userData = await User.findOne({ _id: context.user._id }).select('-__v -password'
                 );
                 return userData;
             };
